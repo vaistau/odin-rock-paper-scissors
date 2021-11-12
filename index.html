@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock-Paper-Scissors</title>
+    </head>
+
+    <body>
+        <script>
+            function computerPlay() {
+                let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
+
+                console.log(randomNumber);
+                
+                if (randomNumber === 0) {
+                    return ('rock');
+                } else if (randomNumber === 1) {
+                    return ('paper');
+                } else if (randomNumber === 2) {
+                    return ('scissors');
+                } else {
+                    return('Something went wrong...');
+                }
+            }
+
+            function computerVersusPlayer(playerSelection, computerSelection) {
+                let computerSelection = computerPlay()
+                 if (playerSelection === computerSelection) {
+                     return ('It\'s a tie!');
+                 } else if (playerSelection === rock)
+            }
+
+            console.log(computerPlay());
+        </script>
+    </body>
+</html>
