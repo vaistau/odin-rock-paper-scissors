@@ -7,25 +7,58 @@
 
     <body>
         <script>
+            let playerSelection = prompt('I want to play a game... Will you choose rock, paper, or scissors?');
+            
             let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
-
             console.log(randomNumber);
             
             function computerPlay() {
                 if (randomNumber === 0) {
-                    return ('rock');
+                    return 'rock';
                 } else if (randomNumber === 1) {
-                    return ('paper');
+                    return 'paper';
                 } else if (randomNumber === 2) {
-                    return ('scissors');
+                    return 'scissors';
                 } else {
-                    return('Something went wrong...');
+                    return 'Something went wrong...';
+                }
+            }
+            console.log(computerPlay());
+
+            function computerVerusPlayer(playerSelection, computerPlay()) {
+                if (playerSelection === computerPlay()) {
+                    return 'It\'s a tie!'
+                }
+
+                if (playerSelection === 'rock') {
+                    if (computerPlay() === 'paper') {
+                        return 'Computer wins. Paper beats rock.';
+                    }
+                    if (computerPlay() === 'scissors') {
+                        return 'Human wins. Rock beats scissors.';
+                    }
+                }
+                
+                if (playerSelection === 'paper') {
+                    if (computerPlay() === 'scissors') {
+                        return 'Computer wins. Scissors beat paper.';
+                    }
+                    if (computerPlay() === 'rock') {
+                        return 'Human wins. Paper beats rock.';
+                    }
+                }
+
+                if (playerSelection === 'scissors') {
+                    if (computerPlay() === 'rock') {
+                        return 'Computer wins. Rock beats scissors.';
+                    }
+                    if (computerPlay() === 'paper') {
+                        return 'Human wins. Scissors beat paper.';
+                    }
                 }
             }
 
-            
 
-            console.log(computerPlay());
         </script>
     </body>
 </html>
