@@ -7,11 +7,11 @@
 
     <body>
         <script>
-            function computerPlay() {
-                let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
+            let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
 
-                console.log(randomNumber);
-                
+            console.log(randomNumber);
+            
+            function computerPlay() {
                 if (randomNumber === 0) {
                     return ('rock');
                 } else if (randomNumber === 1) {
@@ -23,12 +23,7 @@
                 }
             }
 
-            function computerVersusPlayer(playerSelection, computerSelection) {
-                let computerSelection = computerPlay()
-                 if (playerSelection === computerSelection) {
-                     return ('It\'s a tie!');
-                 } else if (playerSelection === rock)
-            }
+            
 
             console.log(computerPlay());
         </script>
