@@ -42,18 +42,14 @@
                     if (computerSelection() === 'scissors') {
                         return 'Human wins... Rock beats scissors.';
                     }
-                }
-
-                if (playerSelection === 'paper') {
+                } else if (playerSelection === 'paper') {
                     if (computerSelection() === 'scissors') {
                         return 'Computer wins! Scissors beat paper.';
                     }
                     if (computerSelection() === 'rock') {
                         return 'Human wins... Paper beats rock.';
                     }
-                }
-
-                if (playerSelection === 'scissors') {
+                } else if (playerSelection === 'scissors') {
                     if (computerSelection() === 'rock') {
                         return 'Computer wins! Rock beats scissors.';
                     }
@@ -65,7 +61,7 @@
 
             console.log(playRound())
 
-            var playAgain = prompt('Would you like to play again?', 'Yes, of course!').toLowerCase();
+            playAgain = prompt('Would you like to play again?', 'Yes, of course!').toLowerCase();
 
             if (playAgain !== 'yes' && playAgain !== 'yes, of course!') {
                 console.log('Fine then. Be that way.');
