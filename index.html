@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Rock-Paper-Scissors</title>
-    </head>
 
-    <body>
-        <script>
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+        var playAgain = 'yes';
+
+        while (playAgain === 'yes') {
             let playerSelection = prompt('I want to play a game... Will you choose rock, paper, or scissors?').toLowerCase();
-            
             let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
+
             console.log(randomNumber);
-            
+
             function computerSelection() {
                 if (randomNumber === 0) {
                     return 'rock';
@@ -23,9 +27,14 @@
                     return 'Something went wrong...';
                 }
             }
+
             console.log(computerSelection());
 
             function playRound() {
+                if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+                    return '...Am I a joke to you?';
+                }
+
                 if (playerSelection === computerSelection()) {
                     return 'It\'s a tie.'
                 }
@@ -38,7 +47,7 @@
                         return 'Human wins... Rock beats scissors.';
                     }
                 }
-                
+
                 if (playerSelection === 'paper') {
                     if (computerSelection() === 'scissors') {
                         return 'Computer wins! Scissors beat paper.';
@@ -57,15 +66,12 @@
                     }
                 }
             }
+
             console.log(playRound())
 
-            playRound()
+            var playAgain = prompt('Would you like to play again?').toLowerCase();
+        }
+    </script>
+</body>
 
-            playRound()
-
-            playRound()
-
-
-        </script>
-    </body>
 </html>
