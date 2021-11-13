@@ -31,6 +31,7 @@
 
             function playRound() {
                 if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+                    i--
                     return '...Am I a joke to you?';
                 }
 
@@ -73,7 +74,7 @@
             console.log('Human: ' + humanScore + ', Computer: ' + computerScore);
 
             if (i !== 4) {
-            playAgain = prompt('Would you like to play again?', 'Yes, of course!').toLowerCase();
+                playAgain = prompt('Would you like to play again?', 'Yes, of course!').toLowerCase();
             }
 
             if (playAgain !== 'yes' && playAgain !== 'yes, of course!') {
@@ -81,10 +82,12 @@
             }
         }
 
-        if (humanScore > computerScore) {
-            console.log('Human won. Don\'t let it get to your head.');
-        } else if (humanScore < computerScore) {
-            console.log('Computer won. As it should be.');
+        if (playAgain === 'yes' || playAgain === 'yes, of course!') {
+            if (humanScore > computerScore) {
+                console.log('Human won. Don\'t let it get to your head.');
+            } else if (humanScore < computerScore) {
+                console.log('Computer won. As it should be.');
+            }
         }
 
     </script>
