@@ -10,8 +10,8 @@
     <script>
         var playAgain = 'yes';
 
-        while (playAgain === 'yes') {
-            let playerSelection = prompt('I want to play a game... Will you choose rock, paper, or scissors?').toLowerCase();
+        while (playAgain === 'yes' || playAgain === 'yes, of course!') {
+            let playerSelection = prompt('I want to play a game on your browser console... Will you choose rock, paper, or scissors?').toLowerCase();
             let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
 
             function computerSelection() {
@@ -65,7 +65,11 @@
 
             console.log(playRound())
 
-            var playAgain = prompt('Would you like to play again?').toLowerCase();
+            var playAgain = prompt('Would you like to play again?', 'Yes, of course!').toLowerCase();
+
+            if (playAgain !== 'yes' && playAgain !== 'yes, of course!') {
+                console.log('Fine then. Be that way.');
+            }
         }
     </script>
 </body>
