@@ -11,6 +11,7 @@ for (i = 0; i < 5 /*&& (playAgain === 'yes' || playAgain === 'yes, of course!')*
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             let playerSelection = event.target.id;
+            playRound(playerSelection, computerSelection);
         })
     })
 
