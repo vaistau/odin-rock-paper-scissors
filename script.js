@@ -4,8 +4,15 @@ let computerScore = 0
 let humanScore = 0
 
 for (i = 0; i < 5 /*&& (playAgain === 'yes' || playAgain === 'yes, of course!')*/; i++) {
-    let playerSelection = prompt('I want to play a game on your browser console... Will you choose rock, paper, or scissors?').toLowerCase();
+    let playerSelection /*= prompt('I want to play a game on your browser console... Will you choose rock, paper, or scissors?').toLowerCase();*/
     let randomNumber = Math.floor(Math.random() * (1 + 2 - 0));
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            let playerSelection = event.target.id;
+        })
+    })
 
     function computerSelection() {
         if (randomNumber === 0) {
@@ -20,17 +27,17 @@ for (i = 0; i < 5 /*&& (playAgain === 'yes' || playAgain === 'yes, of course!')*
     }
 
     function playRound() {
-        if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+        /*if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
             i--
             return '...Am I a joke to you?';
-        }
+        }*/
 
         if (playerSelection === computerSelection()) {
             i--
             return 'Ties don\'t count.'
         }
 
-        if (playerSelection === 'rock') {
+        if (playerSelection === 'Rock') {
             if (computerSelection() === 'paper') {
                 computerScore++;
                 return 'Computer wins! Paper beats rock.';
@@ -39,7 +46,7 @@ for (i = 0; i < 5 /*&& (playAgain === 'yes' || playAgain === 'yes, of course!')*
                 humanScore++;
                 return 'Human wins... Rock beats scissors.';
             }
-        } else if (playerSelection === 'paper') {
+        } else if (playerSelection === 'Paper') {
             if (computerSelection() === 'scissors') {
                 computerScore++;
                 return 'Computer wins! Scissors beat paper.';
@@ -48,7 +55,7 @@ for (i = 0; i < 5 /*&& (playAgain === 'yes' || playAgain === 'yes, of course!')*
                 humanScore++;
                 return 'Human wins... Paper beats rock.';
             }
-        } else if (playerSelection === 'scissors') {
+        } else if (playerSelection === 'Scissors') {
             if (computerSelection() === 'rock') {
                 computerScore++;
                 return 'Computer wins! Rock beats scissors.';
