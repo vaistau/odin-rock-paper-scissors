@@ -1,11 +1,16 @@
 var playAgain = 'yes';
-let computerScore = 0
-let humanScore = 0
-let playerSelection
+
+let computerScore = 0;
+let humanScore = 0;
+let tiedScore = 0;
+let playerSelection;
 let i = 0;
 let randomNumber;
+
 const buttons = document.querySelectorAll('button');
-const results = document.querySelector('#results');
+const humanScoreCard = document.querySelector('#human-score');
+const computerScoreCard = document.querySelector('#computer-score');
+const tieScoreCard = document.querySelector('#ties-score');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -14,7 +19,6 @@ buttons.forEach((button) => {
         if (i < 5) {
             playRound();
             i++;
-            console.log('Human: ' + humanScore + ', Computer: ' + computerScore);
         }
     })
 })
@@ -34,48 +38,50 @@ function computerSelection() {
 
 function playRound() {
     if (playerSelection === computerSelection()) {
-        i--
-        return 'Ties don\'t count.'
+        i--;
+        noWin();
     }
 
     if (playerSelection === 'rock') {
         if (computerSelection() === 'paper') {
-            computerScore++;
-            let computerWin = document.createElement('div');
-            computerWin.textContent = 'Computer wins! Paper beats rock.';
-            results.appendChild(computerWin);
+            computerWin();
+
         }
         if (computerSelection() === 'scissors') {
-            humanScore++;
-            let humanWin = document.createElement('div');
-            humanWin.textContent = 'Human wins... Rock beats scissors.';
-            results.appendChild(humanWin);
+            humanWin();
+            
         }
     } else if (playerSelection === 'paper') {
         if (computerSelection() === 'scissors') {
-            computerScore++;
-            let computerWin = document.createElement('div');
-            computerWin.textContent = 'Computer wins! Scissors beat paper.';
-            results.appendChild(computerWin);
+            computerWin();
+            
         }
         if (computerSelection() === 'rock') {
-            humanScore++;
-            let humanWin = document.createElement('div');
-            humanWin.textContent = 'Human wins... Paper beats rock.';
-            results.appendChild(humanWin);
+            humanWin();
+            
         }
     } else if (playerSelection === 'scissors') {
         if (computerSelection() === 'rock') {
-            computerScore++;
-            let computerWin = document.createElement('div');
-            computerWin.textContent = 'Computer wins! Rock beats scissors.';
-            results.appendChild(computerWin);
+            computerWin();
+            
         }
         if (computerSelection() === 'paper') {
-            humanScore++;
-            let humanWin = document.createElement('div');
-            humanWin.textContent = 'Human wins... Scissors beat paper.';
-            results.appendChild(humanWin);
+            humanWin();
         }
+    }
+
+    function humanWin() {
+        humanScore++;
+        humanScoreCard.innerHTML = 'Your score: ' + humanScore;
+    }
+
+    function computerWin() {
+        computerScore++;
+        computerScoreCard.innerHTML = 'Computer score: ' + computerScore;
+    }
+
+    function noWin() {
+        tiedScore++;
+        tieScoreCard.innerHTML = 'Amount of ties: ' + tiedScore;
     }
 }
